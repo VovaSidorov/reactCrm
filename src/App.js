@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Table from './Components/table';
 import Modal from './Components/modal';
+import Form from './Components/Form';
 
 
 class App extends Component {
@@ -36,6 +37,8 @@ class App extends Component {
       }
     ],
   }
+  
+
 
   AddNewUser = () => {
     
@@ -46,13 +49,18 @@ class App extends Component {
 
   removeUser = index => {
     const { users } = this.state
-  
+    
     this.setState({
       users: users.filter((user, i) => {
         return i !== index
       }),
     })
   }
+
+  handleSubmit = user => {
+    this.setState({ users: [...this.state.users, user] })
+  }
+
   render() {
     const { users } = this.state
   
@@ -60,7 +68,8 @@ class App extends Component {
       <div className="container">
         <button type="button" className="btn btn-primary mt-5 " onClick={this.AddNewUser}>Add new user</button>
         <Table usersData={users} removeUser={this.removeUser} />
-        <Modal/>
+        <Modal handleSubmit={this.handleSubmit}/>
+        <Form handleSubmit={this.handleSubmit} usersData={users}/>
       </div>
     )
   }
