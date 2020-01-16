@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import UserRole from '../selectUserRole'
 
   class Modal extends Component {
      
@@ -75,30 +76,30 @@ import React, { Component } from 'react'
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">Name</span>
                 </div>
-                <input type="text" className="form-control" placeholder="Name" id="inputName" value={login} onChange={this.handleChange}/>
+                <input type="text" className="form-control" name="login" placeholder="Name" id="inputName" value={login} onChange={this.handleChange}/>
             </div>
             <div className="input-group mb-3">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">Email</span>
                 </div>
-                <input type="text" className="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" id="inputEmail" value={email} onChange={this.handleChange}/>
+                <input type="text" className="form-control" name="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" id="inputEmail" value={email} onChange={this.handleChange}/>
             </div>
             <div className="input-group mb-3">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">Password</span>
                 </div>
-                <input type="text" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" id="inputPassword" value={pass} onChange={this.handleChange}/>
+                <input type="text" className="form-control" name="pass" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" id="inputPassword" value={pass} onChange={this.handleChange}/>
             </div>
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Role</label>
               </div>
-              <select className="custom-select" id="inputGroupSelect01">
-                <option defaultValue>Choose...</option>
-                <option value={role} onChange={this.handleChange}>Admin</option>
-                <option value="Manager">Manager</option>
-                <option value="Executor">Executor</option>
-                </select>
+              <select className="custom-select" name="role" id="inputGroupSelect01" value = {role} onChange={this.handleChange}>
+                  <option value="{role} onChange={this.handleChange}">Choose...</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Manager">Manager</option>
+                  <option value="Executor">Executor</option>
+              </select>
               </div>
               </form>
             </div>

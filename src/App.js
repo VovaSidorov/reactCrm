@@ -41,7 +41,6 @@ class App extends Component {
 
 
   AddNewUser = () => {
-    
  const modal = document.getElementById('modal');
  modal.style.display = "block";
 
@@ -57,8 +56,11 @@ class App extends Component {
     })
   }
 
-  handleSubmit = user => {
-    this.setState({ users: [...this.state.users, user] })
+  handleSubmit = (user) => {
+    console.log(user);
+    let {login,email,pass,role} = user;
+    let id=parseInt(this.state.users[this.state.users.length-1].id)+1;
+    this.setState({ users: [...this.state.users, {id,login,email,pass,role}] })
   }
 
   render() {

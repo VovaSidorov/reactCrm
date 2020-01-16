@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 const BodyTable = props => {
     const rows = props.usersData.map((row, index) => {
-        console.log(row);
+     
       return (
         <tr key={index}>
           <td>{row.id}</td>

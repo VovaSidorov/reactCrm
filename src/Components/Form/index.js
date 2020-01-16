@@ -1,6 +1,9 @@
   
 import React, {Component} from 'react';
 
+
+
+
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -35,6 +38,7 @@ class Form extends Component {
         this.props.handleSubmit(this.state)
         this.setState(this.initialState)
       }
+
 
     render() {
         const { login, email, pass, role } = this.state; 
