@@ -21,9 +21,17 @@ import React, { Component } from 'react'
 
 const BodyTable = (props) => {
   let state = props.usersPage;
-  console.log("state",state);
+  let userElements = state.users
+  .map(user=><tr key={user.id}>
+            <td>{user.id}</td>
+            <td>{user.login}</td>
+            <td>{user.email}</td>
+            <td>{user.pass}</td>
+            <td>{user.role}</td>
+            <td><button className="btn btn-primary">Delete</button></td>
+          </tr>);
   return(
-<div>Hello</div>
+<tbody>{userElements}</tbody>
   )
 }
 export default BodyTable

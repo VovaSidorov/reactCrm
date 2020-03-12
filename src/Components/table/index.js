@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HeaderTable from '../headerTable';
-import BodyTableContainet from '../bodyTable/bodyTableContainer';
+import BodyTableContainer from '../bodyTable/bodyTableContainer';
 
 
   class Table extends Component {
@@ -9,7 +9,7 @@ import BodyTableContainet from '../bodyTable/bodyTableContainer';
       return (
         <table className="table mt-5">
           <HeaderTable />
-          <BodyTableContainet/>
+          <BodyTableContainer/>
         </table>
       )
     }
