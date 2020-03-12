@@ -1,5 +1,5 @@
-const ADD_USER = "ADD-USER";
-const UPDATE_NEW_USER_TEXT ='UPDATE-NEW-USER-TEXT';
+  const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT ='UPDATE-NEW-POST-TEXT';
 
 
 let initialState =   {
@@ -33,53 +33,55 @@ let initialState =   {
           role:'Executor',
         }
       ],
-        newPostText: ''
+      newUserLogin: '',
+      newUserEmail: '',
+      newUserPass: '',
+      newUserRole: '',
 }
 
 
-const profileReducer = (state = initialState, action) => {
-
+const userReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_USER: {
-            let newUser = {
-                // id: 5,
-                // message: state.newPostText,
-                // likesCount: 0
-                id: '5',
-                login: state.newLoginText,
-                email: state.newEmailText,
-                pass:state.newPassText,
-                role:state.newRoleText
-            };
-            return {
-                ...state,
-                posts: [...state.users, newUser],
-                newLoginText: '',
-                newEmailText: '',
-                newPassText: '',
-                newRoleText: ''
-            };
+      case ADD_POST: {
+        let newPost = {
+            // id: 5,
+            // message: state.newPostText,
+            // likesCount: 0
+            id: '4',
+            login: state.newUserLogin,
+            email: state.newUserEmail,
+            pass: state.newUserPass,
+            role: state.newUserRole,
+        };
+        return {
+            ...state,
+            users: [...state.users, newPost],
+            newUserLogin: '',
+            newUserEmail: '',
+            newUserPass: '',
+            newUserRole: '',
+        };
+    }
+    case UPDATE_NEW_POST_TEXT: {
+        return {
+            ...state,
+            newUserLogin: action.newLogin,
+            newUserEmail:action.newEmail,
+            newUserPass:action.newPass,
+            newUserRole:action.newRole
         }
-        case UPDATE_NEW_USER_TEXT: {
-            return {
-                ...state,
-                newLoginText: action.newLogin,
-                newEmailText: action.newPass,
-                newPassText: action.newPass,
-                newRoleText: action.newRole
-            }
-        }
-        default:
-            return state;
+    }
+    default:
+        return state;
     }
 }
 
 
-export const addPostActionCreator = ()=>({  type: ADD_USER});
+export const addPostActionCreator = ()=>({  type: ADD_POST});
 export const updateNewPostTextActionCreator = (login,email,pass,role)=>{
     return {
-        type:UPDATE_NEW_USER_TEXT, newLogin: login, newEmail: email, newPass: pass, newRole: role
+        type:UPDATE_NEW_POST_TEXT, newLogin: login, newEmail: email, newPass: pass, newRole: role
     }
 }
 
-export default profileReducer;
+export default userReducer;

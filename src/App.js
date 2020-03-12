@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Table from './Components/table';
 import Modal from './Components/modal';
 import Form from './Components/Form';
+import AddButtonContainer from './Components/AddButton/addButtonContainer';
 
 
 // class App extends Component {
@@ -85,6 +86,7 @@ import Form from './Components/Form';
   return (
     <div className="container">
         {/* <button type="button" className="btn btn-primary mt-5 " onClick={this.AddNewUser}>Add new user</button> */}
+        <AddButtonContainer/>
         <Table  />
         {/* <Modal handleSubmit={this.handleSubmit}/> */}
         {/* <Form /> */}
