@@ -32,7 +32,6 @@ const AddButton = (props) => {
                     <button onClick={ onAddPost } type="button" className="btn btn-primary mt-5 ">Add new us</button>
                     </div>
     )
-
 };
 
 export default AddButton;

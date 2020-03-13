@@ -1,4 +1,5 @@
   const ADD_POST = "ADD-POST";
+    const DELETE_POST = "DELETE-POST";
 const UPDATE_NEW_POST_TEXT ='UPDATE-NEW-POST-TEXT';
 
 
@@ -44,9 +45,6 @@ const userReducer = (state = initialState, action) => {
     switch(action.type) {
       case ADD_POST: {
         let newPost = {
-            // id: 5,
-            // message: state.newPostText,
-            // likesCount: 0
             id: '4',
             login: state.newUserLogin,
             email: state.newUserEmail,
@@ -71,6 +69,10 @@ const userReducer = (state = initialState, action) => {
             newUserRole:action.newRole
         }
     }
+    case DELETE_POST:
+      return {
+        users: [...state.users.filter(item => item.id !== action.userId)],
+      }
     default:
         return state;
     }
@@ -82,6 +84,11 @@ export const updateNewPostTextActionCreator = (login,email,pass,role)=>{
     return {
         type:UPDATE_NEW_POST_TEXT, newLogin: login, newEmail: email, newPass: pass, newRole: role
     }
+}
+export const deletePostActionCreator = (id)=>{
+  return {
+      type:DELETE_POST, userId: id
+  }
 }
 
 export default userReducer;

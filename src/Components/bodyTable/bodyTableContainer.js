@@ -1,44 +1,23 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
-import BodyTable from "./index"
+import BodyTable from "./index";
+import {deletePostActionCreator} from "../../redux/userReducer";
 
-// const BodyTable = props => {
-//     const rows = props.usersData.map((row, index) => {
-     
-//       return (
-//         <tr key={index}>
-//           <td>{row.id}</td>
-//           <td>{row.login}</td>
-//           <td>{row.email}</td>
-//           <td>{row.pass}</td>
-//           <td>{row.role}</td>
-//           <td><button className="btn btn-primary" onClick={() => props.removeUser(index)}>Delete</button></td>
-//         </tr>
-//       )
-//     })
-  
-//     return <tbody>{rows}</tbody>
-//   }
-// export default BodyTable
-
-let mapStateToProps = (state) => {
-    console.log(state);                                                                                                                                                                                                                                                                                                                                                                                       
+let mapStateToProps = (state) => {                                                                                                                                                                                                                                                                                                                                                                                    
     return {
         usersPage: state.usersPage
     }
 };
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         sendMessage: () => {
-//             dispatch(sendMessageCreator())
-//         },
-//         updateNewMessageBody: (body) => {                                                          
-//             dispatch(updateNewMessageBodyCreator(body));                                                                
-//         }
-//     }
-// };
+let mapDispatchToProps = (dispatch) => {
+    return {
+        deleteUserItems: (id) => {
+            let action = deletePostActionCreator(id);
+            dispatch(action);
+        }
+    }
+};
 
-const bodyTableContainer = connect(mapStateToProps)(BodyTable);
+const bodyTableContainer = connect(mapStateToProps,mapDispatchToProps)(BodyTable);
 
 
 export default bodyTableContainer;
