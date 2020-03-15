@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
-import BodyTable from "./index";
-import {deletePostActionCreator} from "../../redux/userReducer";
+import BodyTable from "./indexC";
+import {deletePostActionCreator,setUsersAC} from "../../redux/userReducer";
 
 let mapStateToProps = (state) => {                                                                                                                                                                                                                                                                                                                                                                                    
     return {
@@ -13,6 +13,9 @@ let mapDispatchToProps = (dispatch) => {
         deleteUserItems: (id) => {
             let action = deletePostActionCreator(id);
             dispatch(action);
+        },
+        setUsers:(users)=>{
+            dispatch(setUsersAC(users))
         }
     }
 };
